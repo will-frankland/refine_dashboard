@@ -10,6 +10,15 @@ import {
   ErrorComponent,
 } from "@pankod/refine-mui";
 
+import {
+  AccountCircleOutlined,
+  ChatBubbleOutlined,
+  PeopleAltOutlined,
+  Star,
+  StarOutlineRounded,
+  VillaOutlined
+} from '@mui/icons-material';
+
 import dataProvider from "@pankod/refine-simple-rest";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
 import routerProvider from "@pankod/refine-react-router-v6";
@@ -100,22 +109,28 @@ function App() {
             {
               name: "property",
               list: MuiInferencer,
+              icon: <VillaOutlined />
             },
             {
               name: "agent",
               list: MuiInferencer,
+              icon: <PeopleAltOutlined />
             },
             {
               name: "review",
               list: MuiInferencer,
+              icon : <StarOutlineRounded />
             },
             {
               name: "message",
               list: MuiInferencer,
+              icon: <ChatBubbleOutlined />
             },
             {
               name: "my-profile",
+              options: { label: 'My Profile'},
               list: MuiInferencer,
+              icon : <AccountCircleOutlined />
             },
           ]}
           Title={Title}
