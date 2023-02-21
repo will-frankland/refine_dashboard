@@ -1,5 +1,6 @@
 import React from 'react';
 import { useList } from '@pankod/refine-core';
+import { Typography, Box, Stack } from '@pankod/refine-mui';
 
 import {
   PieChart,
@@ -12,9 +13,14 @@ import {
 
 const home = () => {
   return (
-    <div>
-      Home
-    </div>
+    <Box>
+      <Typography fontSize={25} fontWeight={700} color="#11142D">
+        Dashboard
+      </Typography>
+      <Box mt="2px" display="flex" flexWrap="wrap" gap={4}>
+        <PieChart />
+      </Box>
+    </Box>
   )
 }
 
