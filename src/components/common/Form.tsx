@@ -10,6 +10,7 @@ import {
   Select,
   MenuItem,
   Button,
+  fontSize,
 } from "@pankod/refine-mui";
 
 import { FormProps } from "interfaces/common";
@@ -26,7 +27,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
       onSubmit={handleSubmit(onFinishHandler)}
       >
         <FormControl>
-          <FormHelperText sx={{ fontWeight: 500, margin: '10px 0', fontSize: 16, color: "#11142d"}}>Enter proeprty name</FormHelperText>
+          <FormHelperText sx={{ fontWeight: 500, margin: '10px 0', fontSize: 16, color: "#11142d"}}>Enter property name</FormHelperText>
           <TextField 
             fullWidth
             required
@@ -34,6 +35,25 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
             color="info"
             variant="outlined"
             {...register('title', { required: true })}
+          />
+        </FormControl>
+        <FormControl>
+          <FormHelperText sx={{ fontWeight: 500, margin: '10px 0', fontSize: 16, color: "#11142d"}}>Enter description</FormHelperText>
+          <TextareaAutosize
+            minRows={5}
+            required
+            placeholder="Write description"
+            color="info"
+            style={{ width: '100%', 
+            background: 'transparent',
+            fontSize: '16px',
+            borderColor: 'rgba(0,0,0,0.23)',
+            borderRadius: 6,
+            padding: 10,
+            color: '#919191'}}
+            {...register('description', {
+              required: true
+            })}
           />
         </FormControl>
       </form>
