@@ -56,6 +56,18 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
             })}
           />
         </FormControl>
+        <Stack direction="row" gap={4}>
+          <FormControl sx={{ flex: 1 }}>
+            <FormHelperText sx={{
+              fontWeight: 500,
+              margin: '10px 0'
+              fontSize: 16,
+              color: '#11142D'
+            }}>
+              Select Property Type
+            </FormHelperText>
+          </FormControl>
+        </Stack>
       </form>
     </Box>
   </Box>
