@@ -9,7 +9,7 @@ const CreateProperty = () => {
   const navigate = useNavigate();
   const { data: user } = useGetIdentity();
   const [propertyImage, setPropertyImage] = useState({ name: '', url: '' });
-  const { } = useForm();
+  const { refineCore: { onFinish, formLoading }, register, handleSubmit } = useForm();
 
   return (
     <div>
