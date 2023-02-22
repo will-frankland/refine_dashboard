@@ -75,7 +75,14 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
               defaultValue='apartment'
               {...register('propertyType', { required: true})}
             >
-
+              <MenuItem value="apartment">Apartment</MenuItem>
+              <MenuItem value="villa">Villa</MenuItem>
+              <MenuItem value="farmhouse">Farmhouse</MenuItem>
+              <MenuItem value="condos">Condo</MenuItem>
+              <MenuItem value="townhouse">Townhouse</MenuItem>
+              <MenuItem value="duplex">Duplex</MenuItem>
+              <MenuItem value="studio">Studio</MenuItem>
+              <MenuItem value="chalet">Chalet</MenuItem>
             </Select>
           </FormControl>
         </Stack>
