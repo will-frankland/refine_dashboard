@@ -164,6 +164,12 @@ const Form = ({
               {...register("location", { required: true })}
             />
           </FormControl>
+          <Stack direction="column" gap={1}
+            justifyContent='center' mb={2}>
+            <Stack direction="row" gap={2}>
+              <Typography color="#11142D" fontSize={16} fontWeight={500} my="10px">Property Photo</Typography>
+            </Stack>
+          </Stack>
         </form>
       </Box>
     </Box>
