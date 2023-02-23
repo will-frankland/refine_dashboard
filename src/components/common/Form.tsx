@@ -181,7 +181,14 @@ const Form = ({
                 />
               </Button>
             </Stack>
+            <Typography fontSize={14} color="#808191" sx={{ wordBreak: 'break-all'}}>{propertyImage?.name}</Typography>
           </Stack>
+          <CustomButton 
+            type="submit"
+            title={formLoading ? 'Submitting...' : 'Submit'}
+            backgroundColor="#475be8"
+            color="#fcfcfc"
+            />
         </form>
       </Box>
     </Box>
