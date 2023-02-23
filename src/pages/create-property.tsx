@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import { useState} from 'react';
 import { useGetIdentity } from '@pankod/refine-core';
 import { FieldValues, useForm } from '@pankod/refine-react-hook-form';
 import { useNavigate } from '@pankod/refine-react-router-v6';
@@ -15,7 +15,7 @@ const CreateProperty = () => {
   const onFinishHandler = () => {}
 
   return (
-    <Form 
+    <Form
       type="Create"
       register={register}
       onFinish={onFinish}
@@ -25,7 +25,7 @@ const CreateProperty = () => {
       onFinishHandler={onFinishHandler}
       propertyImage={propertyImage}
       />
-  )
-}
+  );
+};
 
 export default CreateProperty;

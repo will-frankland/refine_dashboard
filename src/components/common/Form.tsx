@@ -1,23 +1,13 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  FormControl,
-  FormHelperText,
-  TextField,
-  TextareaAutosize,
-  Stack,
-  Select,
-  MenuItem,
-  Button,
-  fontSize,
+import { Box, Typography, FormControl, FormHelperText, TextField, TextareaAutosize,
+  Stack, Select, MenuItem, Button, fontSize,
 } from "@pankod/refine-mui";
 
 import { FormProps } from "interfaces/common";
 import CustomButton from './CustomButton';
 
-const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, onFinishHandler, propertyImage }: FormProps) => {
-  return 
+const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, onFinishHandler, propertyImage } : FormProps) => {
+  return (
   <Box>
     <Typography fontSize={25} fontWeight={700} color="#11142d">
       {type} a Property
@@ -60,7 +50,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
           <FormControl sx={{ flex: 1 }}>
             <FormHelperText sx={{
               fontWeight: 500,
-              margin: '10px 0'
+              margin: '10px 0',
               fontSize: 16,
               color: '#11142D'
             }}>
@@ -89,6 +79,7 @@ const Form = ({ type, register, handleSubmit, handleImageChange, formLoading, on
       </form>
     </Box>
   </Box>
+  )
 };
 
 export default Form;
