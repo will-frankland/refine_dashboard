@@ -168,6 +168,18 @@ const Form = ({
             justifyContent='center' mb={2}>
             <Stack direction="row" gap={2}>
               <Typography color="#11142D" fontSize={16} fontWeight={500} my="10px">Property Photo</Typography>
+              <Button component="label" sx={{ width: 'fit-content', color: "#2ed480", textTransform: 'capitalize', fontSize: 16 }}>
+                Upload *
+                <input
+                  hidden
+                  accept="image/*"
+                  type="file"
+                  onChange={(e) => {
+                    // @ts-ignore
+                    handleImageChange(e.target.files[0])
+                  }}
+                />
+              </Button>
             </Stack>
           </Stack>
         </form>
