@@ -14,10 +14,11 @@ import {
   AccountCircleOutlined,
   ChatBubbleOutlined,
   PeopleAltOutlined,
+  RssFeed,
   Star,
   StarOutlineRounded,
-  VillaOutlined
-} from '@mui/icons-material';
+  VillaOutlined,
+} from "@mui/icons-material";
 
 import dataProvider from "@pankod/refine-simple-rest";
 import { MuiInferencer } from "@pankod/refine-inferencer/mui";
@@ -25,7 +26,7 @@ import routerProvider from "@pankod/refine-react-router-v6";
 import axios, { AxiosRequestConfig } from "axios";
 import { ColorModeContextProvider } from "contexts";
 import { Title, Sider, Layout, Header } from "components/layout";
-import { 
+import {
   Login,
   Home,
   Agents,
@@ -34,9 +35,11 @@ import {
   AllProperties,
   CreateProperty,
   AgentProfile,
-  EditProperty, } from "pages";
+  EditProperty,
+} from "pages";
 import { CredentialResponse } from "interfaces/google";
 import { parseJwt } from "utils/parse-jwt";
+import { ESPIPE } from "constants";
 
 const axiosInstance = axios.create();
 axiosInstance.interceptors.request.use((request: AxiosRequestConfig) => {
@@ -59,25 +62,29 @@ function App() {
 
       // Save user to MongoDB
       if (profileObj) {
-        const response = await fetch('http://localhost:8080/api/v1/users', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const response = await fetch("http://localhost:8080/api/v1/users", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             name: profileObj.name,
             email: profileObj.email,
             avatar: profileObj.picture,
-          })
-        })
-      }
+          }),
+        });
 
-      if (profileObj) {
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            ...profileObj,
-            avatar: profileObj.picture,
-          })
-        );
+        const data = await response.json();
+        if (response.status === 200) {
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              ...profileObj,
+              avatar: profileObj.picture,
+              userid: data._id,
+            })
+          );
+        } else {
+          return Promise.reject();
+        }
       }
 
       localStorage.setItem("token", `${credential}`);
@@ -134,29 +141,29 @@ function App() {
               show: PropertyDetails,
               create: CreateProperty,
               edit: EditProperty,
-              icon: <VillaOutlined />
+              icon: <VillaOutlined />,
             },
             {
               name: "agents",
               list: Agents,
               show: AgentProfile,
-              icon: <PeopleAltOutlined />
+              icon: <PeopleAltOutlined />,
             },
             {
               name: "reviews",
               list: Home,
-              icon : <StarOutlineRounded />
+              icon: <StarOutlineRounded />,
             },
             {
               name: "messages",
               list: Home,
-              icon: <ChatBubbleOutlined />
+              icon: <ChatBubbleOutlined />,
             },
             {
               name: "my-profile",
-              options: { label: 'My Profile'},
+              options: { label: "My Profile" },
               list: MyProfile,
-              icon : <AccountCircleOutlined />
+              icon: <AccountCircleOutlined />,
             },
           ]}
           Title={Title}
