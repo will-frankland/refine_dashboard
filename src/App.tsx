@@ -70,7 +70,8 @@ function App() {
             email: profileObj.email,
             avatar: profileObj.picture,
           }),
-        });
+        }
+      );
 
         const data = await response.json();
         if (response.status === 200) {
